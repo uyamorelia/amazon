@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -58,10 +60,10 @@
                     <div class="navbar-nav ms-auto">
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Client</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Client</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="All Client.html" class="dropdown-item">All Client</a>
-                                <a href="James Andrade AS.html" class="dropdown-item active">James Andrade</a>
+                                <a href="James Andrade AS.html" class="dropdown-item">James Andrade</a>
                                 <a href="404.html" class="dropdown-item">Client 2</a>
                             </div>
                         </div>
@@ -74,10 +76,10 @@
                         </div>
                         <a href="404.html" class="nav-item nav-link">AG-Plan</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ASIN</a>
+                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">ASIN</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="asinchecker.html" class="dropdown-item">Checker</a>
-                                <a href="asin list.html" class="dropdown-item">List</a>
+                                <a href="asin list.html" class="dropdown- active">List</a>
                             </div>
                     </div>
         
@@ -85,39 +87,45 @@
             </nav>
         </div>
         <!-- Navbar End -->
-   
-        <!-- Body Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <a href="https://docs.google.com/spreadsheets/d/1-nXjOlVpTYKj_nzGJFEwBzAK8ES-ZvwrAO0azavcCvg/edit#gid=1823987666" target="_blank">
-                <div style="text-align:center;">
-                  <h1> James Andrade</h1>
-                </div>
-                <div style="text-align:center;">
-                    <iframe style="display:auto" name="testFrame" style="border:0" width="100%" height="600" frame boarder="0" src="https://docs.google.com/spreadsheets/d/1-nXjOlVpTYKj_nzGJFEwBzAK8ES-ZvwrAO0azavcCvg/edit?usp=sharing?widget=true&amp;headers=false"></iframe>
-                </div> 
-              </a>
 
-             <br>
-                <div style="text-align:center;">
-                    <h3>Weeky Sales</h3>
-                    <iframe style="display:auto" name="testFrame" style="border:0" width="100%" height="450" frame boarder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR3oXWKqn5RA4MKElbnn5J0Ni3UrVOOgzlErdOs-QbNaseX0ukYXkJWEkoY1rGUGIafnAfltTQs1n_V/pubhtml?widget=true&amp;headers=false">
-                    </iframe>
-                  </div>
 
-            <br>
-                <div style="text-align:center;">
-                  <h3>Monthly Sales</h3>
-                  </div>
-                    <div style="text-align:center;">
-                      <iframe style="display:auto" name="testFrame" style="border:0" width="60%" height="350" frame boarder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSW8_ReAK4NCLHR3ugeb_T7FIJJrMaiDLYAj9GD0rHoDklfo9UrsQmIj9EroxNbEL8u2Emp-_g-qsNS/pubhtml?widget=true&amp;headers=false">
-                      </iframe>
+        <!-- Search Start -->
+        <br>
+        <h1 style="text-align:center;">List Your Asin</h1>
+        <form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbw_PeB977TZLa7JsI17iFOCT9mvQsV1dg2y5GIGp_ppsQvAasziNrHRGc1SGrCd5Zo5qg/exec" target="_blank"
+>
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input name="Asin" type="text" class="form-control border-0 py-3" placeholder="Asin">
+                            </div>
+                            <div class="col-md-4">
+                                <input name="Store Name" type="text" class="form-control border-0 py-3" placeholder="Store Name">
+                            </div>
+                            <div class="col-md-4">
+                                <input name="Date" type="datetime-local" class="form-control border-0 py-3" placeholder="Date">
+                            </div>
+                           
+                            
+                        </div>
                     </div>
-
-
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-dark border-0 w-100 py-3" id="refresh" onClick="refreshPage()">Submit</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- body End -->
-
-        
+    </form>
+        <!-- Search End -->
+       
+        <br>
+        <script src="https://sheetdb.io/s/t/pi6bivwlsrpnk.js"></script>
+        </div>
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container">
@@ -140,8 +148,6 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    
-    
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -151,6 +157,13 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script></body>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function refreshPage(){
+            window.location.reload();
+        } 
+        </script>
+</body>
 
 </html>
