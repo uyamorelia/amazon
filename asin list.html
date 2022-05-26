@@ -29,6 +29,234 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      
+      var script_url = "https://script.google.com/macros/s/AKfycbwatCLKC9sitFjv44N-EpFfZoQw-vqeotrJP2uhtvZQnCIFXMVjN9yXcrRve7f43c9Q/exec";
+      
+      // Make an AJAX call to Google Script
+      function insert_value() {
+        
+        $("#re").css("visibility","hidden");
+         document.getElementById("loader").style.visibility = "visible";
+        $('#mySpinner').addClass('spinner');
+    
+    var id1=	$("#id").val();
+        var name= $("#name").val();
+        
+        
+        var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=insert";
+      
+    
+        var request = jQuery.ajax({
+          crossDomain: true,
+          url: url ,
+          method: "GET",
+          dataType: "jsonp"
+        });
+    
+      }
+    
+    
+      
+      
+     
+      
+      
+      function update_value(){
+        $("#re").css("visibility","hidden");
+         document.getElementById("loader").style.visibility = "visible";
+        
+        
+    var id1=	$("#id").val();
+        var name= $("#name").val();
+        
+        
+        
+        var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=update";
+      
+    
+        var request = jQuery.ajax({
+          crossDomain: true,
+          url: url ,
+          method: "GET",
+          dataType: "jsonp"
+        });
+    
+        
+      }
+    
+      
+     
+      
+      
+      function delete_value(){
+        $("#re").css("visibility","hidden");
+         document.getElementById("loader").style.visibility = "visible";
+        $('#mySpinner').addClass('spinner');
+    var id1=	$("#id").val();
+        var name= $("#name").val();
+        
+        
+        var url = script_url+"?callback=ctrlq&name="+name+"&id="+id1+"&action=delete";
+      
+    
+        var request = jQuery.ajax({
+          crossDomain: true,
+          url: url ,
+          method: "GET",
+          dataType: "jsonp"
+        });
+    
+      }
+    
+    
+      
+      
+      // print the returned data
+      function ctrlq(e) {
+      
+        
+        $("#re").html(e.result);
+        $("#re").css("visibility","visible");
+        read_value();
+        
+      }
+      
+      
+    
+      
+    function read_value() {
+    
+    $("#re").css("visibility","hidden");
+       
+       document.getElementById("loader").style.visibility = "visible";
+     var url = script_url+"?action=read";
+    
+    $.getJSON(url, function (json) {
+    
+        // Set the variables from the results array
+       
+       
+      
+    
+            // CREATE DYNAMIC TABLE.
+            var table = document.createElement("table");
+    
+            
+    
+            var header = table.createTHead();
+            var row = header.insertRow(0);     
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+        
+            cell1.innerHTML = "<b>Asin</b>";
+            cell2.innerHTML = "<b>Store Name</b>";
+            cell3.innerHTML = "<b>Time stamp</b>";
+            
+            // ADD JSON DATA TO THE TABLE AS ROWS.
+            for (var i = 0; i < json.records.length; i++) {
+    
+                tr = table.insertRow(-1);
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = json.records[i].ID;
+                    tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = json.records[i].NAME;
+                    tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = json.records[i].Time_stamp;
+                }
+          
+    
+            // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+            var divContainer = document.getElementById("showData");
+            divContainer.innerHTML = "";
+            divContainer.appendChild(table);
+            document.getElementById("loader").style.visibility = "hidden";
+            $("#re").css("visibility","visible");
+        });
+        }
+      
+      </script>
+
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+        .button {
+          position: relative;
+          background-color: #383838;
+          border: none;
+          font-size: 20px;
+          color: #FFFFFF;
+          padding: 5px;
+          width: 200px;
+          text-align: center;
+          transition-duration: 0.4s;
+          text-decoration: none;
+          overflow: hidden;
+          cursor: pointer;
+        }
+        
+        .button:after {
+          content: "";
+          background: #f1f1f1;
+          display: block;
+          position: absolute;
+          padding-top: 300%;
+          padding-left: 350%;
+          margin-left: -20px !important;
+          margin-top: -120%;
+          opacity: 0;
+          transition: all 0.8s
+        }
+        
+        .button:active:after {
+          padding: 0;
+          margin: 0;
+          opacity: 1;
+          transition: 0s
+        }
+
+input[type=text], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+        </style>
 
 
 </head>
@@ -87,45 +315,34 @@
             </nav>
         </div>
         <!-- Navbar End -->
-
-
+        
         <!-- Search Start -->
         <br>
         <h1 style="text-align:center;">List Your Asin</h1>
-        <form 
-  method="POST" 
-  action="https://script.google.com/macros/s/AKfycbw_PeB977TZLa7JsI17iFOCT9mvQsV1dg2y5GIGp_ppsQvAasziNrHRGc1SGrCd5Zo5qg/exec" target="_blank"
->
-        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
-            <div class="container">
-                <div class="row g-2">
-                    <div class="col-md-10">
-                        <div class="row g-2">
-                            
-                            <div class="col-md-4">
-                                <input name="Asin" type="text" class="form-control border-0 py-3" placeholder="Asin">
-                            </div>
-                            <div class="col-md-4">
-                                <input name="Store Name" type="text" class="form-control border-0 py-3" placeholder="Store Name">
-                            </div>
-                            <div class="col-md-4">
-                                <input name="Date" type="datetime-local" class="form-control border-0 py-3" placeholder="Date">
-
-                            </div>
-                            </div>
-                            </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-dark border-0 w-100 py-3" >Submit</button>
-                    </div>
+        <form>
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;" > 
+            <div>
+                <div style="text-align:center; font-size: 20px;">
+                   Asin : &nbsp;<input name ="id" id="id" type="text" placeholder="Asin">
+                   &nbsp;&nbsp;Store Name : &nbsp; <input name ="name" id="name" type="text" placeholder="Store Name">
                 </div>
+            </div>
+            <br>
+            <div>
+                <div style="text-align:center;">
+                    <input type = "button"  class="button" id = "b1" onClick="insert_value()" value = "Insert"></input>
+                    <input type="button" class="button" onclick="read_value()" value="Refresh" />
+                    <input type="button" class="button" onclick="update_value()" value="Update" />
+                </div>
+                
             </div>
         </div>
     </form>
         <!-- Search End -->
-       
         <br>
-        <script src="https://sheetdb.io/s/t/pi6bivwlsrpnk.js"></script>
-        </div>
+        <div id="loader"></div>
+        <p style="text-align: center; font-size: 40px;color: red;" id="re"></p>
+       <div id="showData"></div>
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container">
@@ -159,6 +376,15 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const reloadtButton = document.querySelector("#reload");
+// Reload everything:
+function reload() {
+    reload = location.reload();
+}
+// Event listeners for reload
+reloadButton.addEventListener("click", reload, false);
+    </script>
     
 </body>
 
