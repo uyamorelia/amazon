@@ -1,6 +1,6 @@
 
       
-      var script_url = "https://script.google.com/macros/s/AKfycby4KLrRoJIk70Q_wyNTEsNq-4roG6myaNxTMxICy1WDekYFASRGug9z6MrSFpkwzJ2y/exec";
+      var script_url = "https://script.google.com/macros/s/AKfycbx1mt3cRmSRuy_YxHKt05L2xYgES0pLp4i7EtVe5VLKKBnckYZhcgw8e2oZX-qRo9Q/exec";
       
       // Make an AJAX call to Google Script
       function insert_value() {
@@ -9,7 +9,7 @@
          document.getElementById("loader").style.visibility = "visible";
         $('#mySpinner').addClass('spinner');
     
-    var id1=	$("#id").val();
+        var id1=	$("#id").val();
         var name= $("#name").val();
         var weburl= $("#weburl").val();
         var supurl= $("#supurl").val();
@@ -39,7 +39,7 @@
          document.getElementById("loader").style.visibility = "visible";
         
         
-    var id1=	$("#id").val();
+       var id1=	$("#id").val();
         var name= $("#name").val();
         var weburl= $("#weburl").val();
         var supurl= $("#supurl").val();
@@ -66,7 +66,7 @@
         $("#re").css("visibility","hidden");
          document.getElementById("loader").style.visibility = "visible";
         $('#mySpinner').addClass('spinner');
-    var id1=	$("#id").val();
+        var id1=	$("#id").val();
         var name= $("#name").val();
         var weburl= $("#weburl").val();
         var supurl= $("#supurl").val();
