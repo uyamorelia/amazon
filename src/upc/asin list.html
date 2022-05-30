@@ -105,19 +105,19 @@
             </div>
             <div style="text-align:center;" >
                 &nbsp;&nbsp;
-                <label for="id">UPC NUMBER:</label>
+                <label for="id" style="color:rgb(255, 255, 255); font-size: 20px; font-weight: bold;">UPC NUMBER:</label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="name">CLUSTER NAME:</label><br>
+                <label for="name" style="color:rgb(255, 255, 255); font-size: 20px; font-weight: bold;">CLUSTER NAME:</label><br>
                 <input class="space" type="text" id="id" name="id" onfocus="this.value=''" placeholder="UPC NUMBER">
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" id="name" name="name" onfocus="this.value=''" placeholder="CLUSTER NAME"><br><br>
-                <label for="id">WALMART URL:</label>
+                <label for="id style="color:rgb(255, 255, 255); font-size: 20px; font-weight: bold;"">WALMART URL:</label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="name">Supplier URL:</label><br>
+                <label for="name" style="color:rgb(255, 255, 255); font-size: 20px; font-weight: bold;">Supplier URL:</label><br>
                 <input type="text" id="weburl" name="weburl" onfocus="this.value=''" placeholder="WALMART URL">
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" id="supurl" name="supurl" onfocus="this.value=''" placeholder="SUPPLIER URL"><br><br>
-                <label for="id">VA NAME:</label><br>
+                <label for="id" style="color:rgb(255, 255, 255); font-size: 20px; font-weight: bold;">VA NAME:</label><br>
                 <input type="text" id="va" name="va" onfocus="this.value=''" placeholder="VA NAME"><br><br>
 
                 <input type ="button"  class="button" id ="b1" onClick="insert_value()" value = "Insert"></input>
@@ -125,7 +125,10 @@
                 <input type="button" class="button" onclick="read_value()" value="Refresh" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="button" class="button" onclick="update_value()" value="Update" />
-                
+                <br><br>
+                <div id="loader"></div>
+                <p style="text-align: center; font-size: 40px;color: red;" id="re"></p>
+                <div id="showData"></div>
                 
         </div>
             
@@ -136,9 +139,7 @@
         </div>
     </form>
         <!-- Search End -->
-        <div id="loader"></div>
-        <p style="text-align: center; font-size: 40px;color: red;" id="re"></p>
-       <div id="showData"></div>
+        
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container">
