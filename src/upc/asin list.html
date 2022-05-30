@@ -100,29 +100,43 @@
         <form>
         <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;" > 
             <div>
-                <div style="text-align:center; font-size: 20px;">
-                   Asin : &nbsp;<input name ="id" id="id" type="text" placeholder="Asin">
-                   &nbsp;&nbsp;Store Name : &nbsp; <input name ="name" id="name" type="text" placeholder="Store Name">
-                   Walmart Url : &nbsp; <input name ="weburl" id="weburl" type="text" placeholder="URL">
-                   <br>Source Url : &nbsp; <input name ="supurl" id="supurl" type="text" placeholder="URL">
-                   &nbsp;&nbsp;Virtual Assistant : &nbsp; <input name ="va" id="va" type="text" placeholder="VA NAME">
-               
-                </div>
-            </div>
-            <br>
-            <div>
-                <div style="text-align:center;">
-                    <input type = "button"  class="button" id = "b1" onClick="insert_value()" value = "Insert"></input>
-                    <input type="button" class="button" onclick="read_value()" value="Refresh" />
-                    <input type="button" class="button" onclick="update_value()" value="Update" />
-                </div>
                 
             </div>
+            <div style="text-align:center;" >
+                &nbsp;&nbsp;
+                <label for="id">UPC NUMBER:</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="name">CLUSTER NAME:</label><br>
+                <input class="space" type="text" id="id" name="id" onfocus="this.value=''" placeholder="UPC NUMBER">
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="name" name="name" onfocus="this.value=''" placeholder="CLUSTER NAME"><br><br>
+                <label for="id">WALMART URL:</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="name">Supplier URL:</label><br>
+                <input type="text" id="weburl" name="weburl" onfocus="this.value=''" placeholder="WALMART URL">
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="supurl" name="supurl" onfocus="this.value=''" placeholder="SUPPLIER URL"><br><br>
+                <label for="id">VA NAME:</label><br>
+                <input type="text" id="va" name="va" onfocus="this.value=''" placeholder="VA NAME"><br><br>
+
+                <input type ="button"  class="button" id ="b1" onClick="insert_value()" value = "Insert"></input>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" class="button" onclick="read_value()" value="Refresh" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" class="button" onclick="update_value()" value="Update" />
+                
+            
+            <br>
+        </div>
+            
+                
+                    
+                
+        
         </div>
     </form>
         <!-- Search End -->
-        <br>
-        <br>
+       
         <div id="loader"></div>
         <p style="text-align: center; font-size: 40px;color: red;" id="re"></p>
        <div id="showData"></div>
@@ -160,6 +174,26 @@
     <script src="../../js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../js/reloadbutton.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function() {
+        // do not allow users to enter spaces:
+        $(  ".space" ).on({
+        keydown: function(event) {
+        if (event.which === 32)
+        return false;
+        },
+        // if a space copied and pasted in the input field, replace it (remove it):
+        change: function() {
+        this.value = this.value.replace(/\s/g, "");
+        }
+        });
+        });
+        
+            function removeSpaces(string) {
+             return string.split(' ').join('');
+            }
+            </script>
+        
     
     
 </body>
