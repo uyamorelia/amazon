@@ -150,6 +150,6 @@ $.getJSON(url, function (json) {
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
 		document.getElementById("loader").style.visibility = "hidden";
-		$("#re").css("visibility","visible");.class("col-xs-7 table-bordered table-striped table-condensed table-fixed")
+		$("#re").css("visibility","visible");
     });
 	}
